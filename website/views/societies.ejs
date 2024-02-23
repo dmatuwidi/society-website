@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--following html elements will live here-->
+<%- include('common/head', {title : "Societies"}) %>
+
+<body>
+    <%- include('common/header', {message : ""}) %>
+    <%- include('common/banner', {title : "Societies"}) %>
+    <table class="showcase">
+        <thead>
+            <tr>
+                <th> Title </th>
+                <th> Members </th>
+                <th> Email </th>
+                <th> Membership Fee</th>
+                <th> View </th>
+                <th> Update </th>
+                <th> Delete </th>
+            </tr>
+        </thead>
+        <tbody>
+            <% societies.forEach(society=> { %>
+                <div id="delete" class="modal">
+                    <section class="popup">
+                        <p> <b>Are you sure you want to delete this society?</b> </p>
+                        <p> This action cannot be reversed </p>
+                        <div class="buttons">
+                            <a onclick="document.getElementById('delete').style.display='none'"> Cancel </a>
+                            <a href="/societies/delete-<%- society.SOC_ID %>"> Delete </a>
+                        </div>
+                    </section>
+                </div>
+                <tr>
+                    <td> <%= society.Soc_Title %> </td>
+                    <td> <%= society.count %> </td>
+                    <td> <%= society.Soc_Email %> </td>
+                    <td> £<%= (society.Soc_MembershipFee).toFixed(2) %> p/m</td>
+                    <td> <a href="/view/<%- society.SOC_ID %>"> View </a> </td>
+                    <td> <a href="/update/<%- society.SOC_ID %>"> Update </a> </td>
+                    <td> <a onclick="document.getElementById('delete').style.display='flex'"> Delete </a> </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>  
+    <%- include('common/footer') %>
+</body>
+
+</html>

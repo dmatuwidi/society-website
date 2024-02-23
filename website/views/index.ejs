@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--following html elements will live here-->
+<%- include('common/head', {title : "Home"}) %>
+
+<body>
+    <%- include('common/header', {message : ""}) %>
+    <div class="home">
+        <h1 class="title"> Student Societies </h1>
+        <hr>
+        <h1> View Societies </h1>
+        <p> See what societies we have to offer</p>
+        <div>
+            <a href="/societies"><button type="button"> View </button></a>
+        </div>
+        <hr>
+        <h1> Create Society </h1>
+        <p> Create your own society for others to join! </p>
+        <div>
+            <a href="/create"><button type="button"> Create </button></a>
+        </div>
+    </div>
+    <%- include('common/footer') %>
+</body>
+
+</html>

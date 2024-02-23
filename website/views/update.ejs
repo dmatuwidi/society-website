@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--following html elements will live here-->
+<%- include('common/vhead', {title : "Update"}) %>
+
+<body>
+    <%- include('common/header', {message : message}) %>
+    <%- include('common/banner', {title : "Update " + society.Soc_Title}) %>
+    <div class="view">
+        <img src="../<%- society.SOC_ID %>.jpg" alt="Society Image">
+        <form class="info" method="post">
+            <h1> <%- society.Soc_Title %> </h1>
+            <label for="title"> Society Title: </label>
+            <input type="text" name="Soc_Title" id="title" placeholder="<%- society.Soc_Title %>">
+            <label for="email"> Email: </label>
+            <input type="text" name="Soc_Email" id="email" placeholder="<%- society.Soc_Email %>">
+            <label for="fee">Membership Fee:</label>
+            <input type="number" min="0.00" max="99.99" name="Soc_MembershipFee" id="fee" pattern="\d{1,3}(.\d\d)?" placeholder="£<%- (society.Soc_MembershipFee).toFixed(2) %>">
+            <input type="submit" value="Submit" id="submit">
+        </form>
+    </div>
+    <%- include('common/footer') %>
+</body>
+
+</html>

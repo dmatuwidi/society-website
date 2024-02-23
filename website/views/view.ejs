@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--following html elements will live here-->
+<%- include('common/vhead', {title : society.Soc_Title}) %>
+
+<body>
+    <%- include('common/header', {message : ""}) %>
+    <%- include('common/banner', {title : society.Soc_Title}) %>
+    <div class="view">
+        <img src="../<%- society.SOC_ID %>.jpg" alt="Society Image">
+        <div class="info">
+            <h1> <%- society.Soc_Title %> </h1>
+            <p> <b>Members:</b> <%- society.count %> </p>
+            <p> <b>Email:</b> <%- society.Soc_Email %> </p>
+            <p> <b>Membership Fee:</b> £<%- (society.Soc_MembershipFee).toFixed(2) %> p/m </p>
+            <p> <b>Signatories: </b> 
+                <% signatory.forEach(member => { %>
+                    <%- member.Name %> (<b><%- member.Title %></b>),
+                <% }) %>
+            </p>
+            <p> <b>Committee: </b> 
+                <% committee.forEach(member => { %>
+                    <%- member.Name %> (<b><%- member.Title %></b>),
+                <% }) %>
+            </p>
+        </div>
+    </div>
+    <%- include('common/footer') %>
+</body>
+
+</html>
